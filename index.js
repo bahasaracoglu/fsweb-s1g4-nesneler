@@ -15,9 +15,15 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+function MenuElemaniOlustur(isimX, fiyatX, kategoriX){
+	const yeniMenu = {
+		isim: isimX,
+		fiyat: fiyatX,
+		kategori: kategoriX
+	}
+	return yeniMenu;
 }
+console.log(MenuElemaniOlustur("Çay", 4, "İçecekler"));
 
 
 
@@ -31,7 +37,12 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
 
-
+MenuElemaniOlustur("Karışık Pizza",5,"Ana Yemek");
+console.log(MenuElemaniOlustur("Karışık Pizza",5,"Ana Yemek"));
+MenuElemaniOlustur("Americano",2,"İçecekler");
+console.log(MenuElemaniOlustur("Americano",2,"İçecekler"));
+MenuElemaniOlustur("Patates Kizarmasi",2,"Aperatifler");
+console.log(MenuElemaniOlustur("Patates Kizarmasi",2,"Aperatifler"));
 
 /* Görev 2: 
 	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
@@ -50,9 +61,20 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
-
+indirim: function(musteri) {
+if (musteri === "öğretmen" || musteri === "öğrenci" ) {
+	return this.fiyat = 13.5	
+} 
+else if (musteri === "diğer") {
+	return this.fiyat = 16.2
+}
+}
 }
 
+burger.indirim("öğretmen");
+console.log(burger.indirim("öğretmen"));
+burger.indirim("diğer");
+console.log(burger.indirim("diğer"));
 
 
 ///////////////Değerlendirmeler (MVP)///////////////////
@@ -72,14 +94,23 @@ const degerlendirmeler = [
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
 
-
+degerlendirmeler.find(obj =>{ 
+	if(obj.isim === "Ahmet"){
+	console.log(obj.geribildirim);
+	}
+	});
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
 	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
-
+degerlendirmeler.find(obj =>{ 
+	if(obj.isim === "Reyan"){
+		obj.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
+	console.log(obj.geribildirim);
+	}
+});
 
 
 /*  Görev 5: 

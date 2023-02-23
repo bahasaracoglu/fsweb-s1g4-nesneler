@@ -106,12 +106,11 @@ degerlendirmeler.find(obj =>{
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
 degerlendirmeler.find(obj =>{ 
-	if(obj.isim === "Reyan"){
-		obj.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
-	console.log(obj.geribildirim);
+	if(obj.isim === "Reyna"){
+	obj.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım" ;
 	}
-});
-
+	});
+	console.log("Görev 4__", degerlendirmeler);
 
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
@@ -125,12 +124,18 @@ degerlendirmeler.find(obj =>{
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
+function DegerledirmeEkle(mevcutDegerlendirmeler, müsteriAdı, müsteriPuanı, müsteriYorumu){
+	const yeniDegerlendirme = { 
+	isim: müsteriAdı,
+	puan: müsteriPuanı,
+	geribildirim: müsteriYorumu}
+
+	let güncelDizi = mevcutDegerlendirmeler.concat(yeniDegerlendirme) 
+	return(güncelDizi);
 }
+DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!');
 
-
+console.log("Görev 5__", DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!'));
 
 /*  Görev 6: 
 	Dizideki değerlendirmelerin anahtarına(key,index) bağlı olarak bir değerlendirme döndüren bir fonksiyon yazın
@@ -143,12 +148,16 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function AnahtardanDegerlendirmeAl(dondurulecekDizi, diziIndex ) {
+	let nesneSecim = dondurulecekDizi[diziIndex];
+let isim = nesneSecim.isim;
+let puan = nesneSecim.puan;
+let geribildirim = nesneSecim.geribildirim;
+return (isim + " isimli kişi " + puan + " puan verdi ve şunları yazdı: " + geribildirim)
 
 }
 
-
+console.log("Görev 6 __", AnahtardanDegerlendirmeAl(degerlendirmeler,0));
 
 /*  Görev 7:  
 	Diziden en son değerlendirmeyi döndüren adı `SonDegerlendirmeyiAl` olan bir fonksiyon yazın 

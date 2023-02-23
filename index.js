@@ -172,11 +172,19 @@ console.log("Görev 6 __", AnahtardanDegerlendirmeAl(degerlendirmeler,0));
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-} 
+function SonDegerlendirmeyiAl(sonDizi) {
+	let sonDegerlendirme = sonDizi.slice(-1);
+	let nesneSecimi = sonDegerlendirme[0];
+ let isim = nesneSecimi.isim;
+let puan = nesneSecimi.puan;
+let geribildirim = nesneSecimi.geribildirim;
+return (isim + " isimli kişi " + puan + " puan verdi ve şunları yazdı: " + geribildirim)
 
+}
 
+console.log("Görev 7 __", SonDegerlendirmeyiAl(degerlendirmeler));
+
+SonDegerlendirmeyiAl(degerlendirmeler);
 
 /////////////// BONUS  GÖRVLER////////////////////
 
